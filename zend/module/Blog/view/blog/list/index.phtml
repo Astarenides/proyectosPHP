@@ -1,10 +1,15 @@
 <h1>Blog</h1>
-
+<p>
+     <a href="<?php echo $this->url('blog/add');?>">Add new blog entry</a>
+</p>
  <?php foreach ($this->posts as $post): ?>
  <article>
      <h1 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h1>
      <p>
          <?= $post->getText() ?>
      </p>
+     <a href="<?php echo $this->url('blog/detail', array('id' => $post->getId()));?>">Details</a>
+     <a href="<?php echo $this->url('blog/edit', array('id' => $post->getId()));?>">Edit</a>
+     <a href="<?php echo $this->url('blog/delete', array('id' => $post->getId()));?>">Delete</a>
  </article>
  <?php endforeach ?>
